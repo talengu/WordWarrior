@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Warrior</string>
+    <string name="action_settings">Made By Talen Gu</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="famoussayings">Famous Sayings</string>
+    <string name="tvstring">Test Mode</string>
+    <string name="img_descible">img_descible</string>
+    <string name="tv_file_name">tv_file_name</string>
+    <string name="tv_file_msg">tv_file_msg</string>
+    <string name="title_activity_txt">TXT Input</string>
+
+</resources>

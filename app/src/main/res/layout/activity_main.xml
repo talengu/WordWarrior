@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".nActivity" >
+
+    
+
+    <RelativeLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        
+         >
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="180dp"
+            android:layout_height="48dp"
+            android:drawSelectorOnTop="true"
+            android:paddingLeft="@dimen/activity_horizontal_margin" />
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="All" />
+
+        <TextView
+            android:id="@+id/PtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/checkBox1"
+            android:text="Passion"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </RelativeLayout>
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearLayout1" />
+
+</RelativeLayout>
