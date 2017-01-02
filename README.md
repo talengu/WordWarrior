@@ -26,7 +26,6 @@
 ## 应用运行图片
 [apk文件](apkandimg/app-debug.apk)
 
-<img src="./apkandimg/Screen1.png" width = "300" height = "200" alt="图片名称" align=center />
-![截图一](apkandimg/Screen1.png)
-![截图二](apkandimg/Screen2.png)
-![截图三](apkandimg/Screen3.png)
+<img src="./apkandimg/Screen1.png" width = "480" height = "800" alt="截图一" align=center />
+<img src="./apkandimg/Screen2.png" width = "480" height = "800" alt="截图二" align=center />
+<img src="./apkandimg/Screen3.png" width = "480" height = "800" alt="截图三" align=center />
