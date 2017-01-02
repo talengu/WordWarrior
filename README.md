@@ -1,4 +1,4 @@
-# WordWarrior
+﻿# WordWarrior
 一个个性化的安卓英语单词本应用，配合mdict效果更好哦！
 
 ## 功能
@@ -25,6 +25,8 @@
 
 ## 应用运行图片
 [apk文件](apkandimg/app-debug.apk)
+
+<img src="./apkandimg/Screen1.png" width = "300" height = "200" alt="图片名称" align=center />
 ![截图一](apkandimg/Screen1.png)
 ![截图二](apkandimg/Screen2.png)
 ![截图三](apkandimg/Screen3.png)
