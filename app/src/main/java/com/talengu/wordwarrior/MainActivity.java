@@ -2,6 +2,7 @@ package com.talengu.wordwarrior;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -81,7 +82,10 @@ public class MainActivity extends Activity {
 
         //Here is Setting Spinner.
         Spinner s1 = (Spinner) findViewById(R.id.spinner1);
-        s1.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, new String[]{"Word Warrior", "Import", "Output", "Sync", "AddTxT"}));
+        String datain = getResources().getString(R.string.Dialog_input);
+        String dataout = getResources().getString(R.string.Dialog_output);
+        String txtin = getResources().getString(R.string.title_activity_txt);
+        s1.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, new String[]{"Word Warrior", datain, dataout, txtin}));
 
         s1.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
@@ -98,15 +102,15 @@ public class MainActivity extends Activity {
                 }
                 if (position == 1)//"import"
                 {
-                    new AlertDialog.Builder(MainActivity.this).setTitle("数据导入")//设置对话框标题
-                            .setMessage("原数据被覆盖，数据将从根目录的new.db导入，程序会在这之后自动关闭！")//设置显示的内容
-                            .setPositiveButton("确定", new DialogInterface.OnClickListener() {//添加确定按钮
+                    new AlertDialog.Builder(MainActivity.this).setTitle(R.string.Dialog_input)//设置对话框标题
+                            .setMessage(R.string.Dialog_input_detail)//设置显示的内容
+                            .setPositiveButton(R.string.Dialog_Button_OK, new DialogInterface.OnClickListener() {//添加确定按钮
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {//确定按钮的响应事件
                                     copySDcradToDB();
                                     finish();
                                 }
-                            }).setNegativeButton("返回", new DialogInterface.OnClickListener() {//添加返回按钮
+                            }).setNegativeButton(R.string.Dialog_Button_Cancel, new DialogInterface.OnClickListener() {//添加返回按钮
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                         }
@@ -114,30 +118,23 @@ public class MainActivity extends Activity {
                 }
                 if (position == 2)//output
                 {
-                    new AlertDialog.Builder(MainActivity.this).setTitle("数据导出")//设置对话框标题
-                            .setMessage("数据导出到根目录下的myword.db文件！")//设置显示的内容
-                            .setPositiveButton("确定", new DialogInterface.OnClickListener() {//添加确定按钮
+                    new AlertDialog.Builder(MainActivity.this).setTitle(R.string.Dialog_output)//设置对话框标题
+                            .setMessage(R.string.Dialog_output_detail)//设置显示的内容
+                            .setPositiveButton(R.string.Dialog_Button_OK, new DialogInterface.OnClickListener() {//添加确定按钮
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {//确定按钮的响应事件
-                                    copyDBToSDcrad();
-                                    Toast.makeText(getApplicationContext(), "导出成功", Toast.LENGTH_SHORT).show();
+                                    progressDialog(context);
+
                                 }
-                            }).setNegativeButton("返回", new DialogInterface.OnClickListener() {//添加返回按钮
+                            }).setNegativeButton(R.string.Dialog_Button_Cancel, new DialogInterface.OnClickListener() {//添加返回按钮
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                         }
                     }).show();
+
                 }
-                if (position == 3)//同步TmpWord和MyWord
-                {
-                    wDao.dataSyncTtoM();
-                    Toast.makeText(getApplicationContext(), "同步成功", Toast.LENGTH_SHORT).show();
-                }
-                if (position == 4)//同步TmpWord和MyWord
-                {
-                    //myword数据分析tmpword数据
-                    //wDao.dataSyncMtoT();
-                    // Toast.makeText(getApplicationContext(), "chushihua成功", Toast.LENGTH_SHORT).show();
+
+                if (position == 3) {
                     Intent intent = new Intent();
                     intent.setClass(MainActivity.this, TXTActivity.class);    //参数一为当前Package的context，t当前Activity的context就是this，其他Package可能用到createPackageContex()参数二为你要打开的Activity的类名
                     startActivity(intent);
@@ -344,10 +341,10 @@ public class MainActivity extends Activity {
     }
 
     private void copyDBToSDcrad() {
-        SimpleDateFormat   formatter   =   new SimpleDateFormat("yyyyMMdd");
-        Date   curDate   =   new Date(System.currentTimeMillis());//获取当前时间
-        String   str   =   formatter.format(curDate);
-        String DATABASE_NAME = "wordwarrior"+str +".db";
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+        Date curDate = new Date(System.currentTimeMillis());//获取当前时间
+        String str = formatter.format(curDate);
+        String DATABASE_NAME = "wordwarrior" + str + ".db";
         String oldPath = SqlHelper.DB_NAME;
         String newPath = Environment.getExternalStorageDirectory() + File.separator + DATABASE_NAME;
         copyFile(oldPath, newPath);
@@ -358,6 +355,7 @@ public class MainActivity extends Activity {
         String oldPath = Environment.getExternalStorageDirectory() + File.separator + DATABASE_NAME;
         String newPath = SqlHelper.DB_NAME;
         copyFile(oldPath, newPath);
+
     }
 
     /**
@@ -387,10 +385,31 @@ public class MainActivity extends Activity {
                 inStream.close();
             }
         } catch (Exception e) {
-            System.out.println("复制单个文件操作出错");
+            // System.out.println("复制单个文件操作出错");
             e.printStackTrace();
 
         }
 
+    }
+
+    /**
+     * 进度条Dialog
+     */
+    private void progressDialog(final Context mContext) {
+        final ProgressDialog mProgress;
+        mProgress = new ProgressDialog(mContext);
+        // mProgress.setIcon(R.drawable.ic_launcher);
+        mProgress.setTitle(R.string.process_Dialog_output);
+        // mProgress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+
+        mProgress.show();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                wDao.dataSyncTtoM();//先同步tmpword和myword的数据
+                copyDBToSDcrad();//然后导出
+                Toast.makeText(mContext, R.string.process_Dialog_output_success, Toast.LENGTH_SHORT).show();
+            }
+        }).start();
     }
 }

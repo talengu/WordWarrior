@@ -14,7 +14,7 @@ import com.talengu.wordwarrior.wordfun.txtfun;
 import java.io.IOException;
 
 public class TXTActivity extends Activity {
-    private Button mbutton;
+    private Button mbutton_add,mbutton_del_add;
     private EditText mEditText;
 
     private Context context = this;
@@ -29,12 +29,34 @@ public class TXTActivity extends Activity {
         wDao = new WordDAO(context);
 
         mEditText=(EditText)findViewById(R.id.editText);
-        mbutton=(Button)findViewById(R.id.button);
-        mbutton.setOnClickListener(new View.OnClickListener() {
+        mbutton_add=(Button)findViewById(R.id.button_add);
+        mbutton_del_add=(Button)findViewById(R.id.button_del_add);
+        mbutton_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txtfun mtxtfun=null;
+                try {
+                    mtxtfun = new txtfun(mEditText.getText().toString());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                for (int i = 0; i < mtxtfun.list.size(); i++) {
+                    // System.out.println(mtxtfun.list.get(i).getKey() + ": " + mtxtfun.list.get(i).getValue());
+                    wDao.Insertword(mtxtfun.list.get(i).getKey());
+                }
+
+                               Toast.makeText(getApplicationContext(), R.string.txt_add_toast1+mtxtfun.list.size()+R.string.txt_add_toast2, Toast.LENGTH_SHORT).show();
+
+
+
+            }
+        });
+
+        mbutton_del_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 wDao.DeletetableTMP();
-                Toast.makeText(getApplicationContext(), "删除tmp成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.txt_del_add_toast, Toast.LENGTH_SHORT).show();
 
                 txtfun mtxtfun=null;
                 try {
@@ -47,7 +69,8 @@ public class TXTActivity extends Activity {
                     wDao.Insertword(mtxtfun.list.get(i).getKey());
                 }
 
-                Toast.makeText(getApplicationContext(), "保存成功，总计"+mtxtfun.list.size()+"个", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.txt_add_toast1+mtxtfun.list.size()+R.string.txt_add_toast2, Toast.LENGTH_SHORT).show();
+
 
 
 

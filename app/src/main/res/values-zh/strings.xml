@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--About mainActivity-->
+    <string name="app_name">Warrior</string>
+
+
+    <string name="Dialog_input">数据导入</string>
+    <string name="Dialog_input_detail">原数据被覆盖，数据将从根目录的new.db导入，程序会在这之后自动关闭！</string>
+    <string name="Dialog_output">数据导出</string>
+    <string name="Dialog_output_detail">数据导出到根目录下的myword.db文件，程序会在这之后自动关闭！</string>
+
+
+    <string name="Dialog_Button_Cancel">取消</string>
+    <string name="Dialog_Button_OK">确定</string>
+
+    <string name="process_Dialog_output">导出中</string>
+    <string name="process_Dialog_output_success">导出成功</string>
+
+    <!--About TxTActivity-->
+    <string name="title_activity_txt">文本输入</string>
+    <string name="txt_button_add">添加</string>
+    <string name="txt_button_del_add">删除后添加</string>
+    <string name="txt_del_add_toast">删除数据成功</string>
+    <string name="txt_add_toast1">保存成功，总计</string>
+    <string name="txt_add_toast2">个</string>
+
+
+</resources>

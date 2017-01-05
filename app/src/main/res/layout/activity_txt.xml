@@ -8,7 +8,6 @@
     tools:context="com.talengu.wordwarrior.TXTActivity">
 
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,27 +17,42 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
             <EditText
+                android:id="@+id/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:ems="10"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="26dp"
-                android:id="@+id/editText"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true" />
+                android:ems="10"
+                android:inputType="textMultiLine" />
 
-            <Button
-                android:text="Save"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/editText"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
-                android:layout_gravity="center"
-                android:layout_marginTop="55dp"
-                android:id="@+id/button" />
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_del_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/txt_button_del_add" />
+
+                <Button
+                    android:id="@+id/button_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:text="@string/txt_button_add" />
+
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
