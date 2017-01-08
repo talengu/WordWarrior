@@ -24,7 +24,7 @@
 
 
 ## 应用运行图片
-本项目debug-apk文件[下载地址](apkandimg/app-debug.apk)  
+本项目debug-apk文件[下载地址](https://raw.githubusercontent.com/talengu/WordWarrior/master/apkandimg/app-debug.apk)  
 mdict Android安装包[下载地址](http://www.mdict.cn/wp/?lang=zh)
 
 <img src="./apkandimg/Screen1.png" width = "240" height = "400" alt="截图一" align=center />
