@@ -31,6 +31,10 @@
             android:name=".TXTActivity"
             android:label="@string/title_activity_txt"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".others.TextToSpeechActivity"
+            android:label="@string/tts_activity_txt"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

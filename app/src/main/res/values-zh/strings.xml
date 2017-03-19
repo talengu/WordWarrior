@@ -24,5 +24,11 @@
     <string name="txt_add_toast1">保存成功，总计</string>
     <string name="txt_add_toast2">个</string>
 
+    <!--TTS Activity-->
+    <string name="tts_speak">Speak</string>
+    <string name="tts_clear">Clear</string>
+    <string name="tts_please">please input</string>
+    <string name="tts_activity_txt">TTS</string>
+
 
 </resources>

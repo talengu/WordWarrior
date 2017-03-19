@@ -24,6 +24,10 @@
     <string name="txt_del_add_toast">Delete Data Success</string>
     <string name="txt_add_toast1">Add Success! Added </string>
     <string name="txt_add_toast2"> Words.</string>
+    <string name="tts_speak">Speak</string>
+    <string name="tts_clear">Clear</string>
+    <string name="tts_please">please input</string>
+    <string name="tts_activity_txt">TTS</string>
 
 
 </resources>

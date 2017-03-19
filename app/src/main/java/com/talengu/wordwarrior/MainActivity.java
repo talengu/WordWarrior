@@ -34,6 +34,7 @@ import com.baoyz.swipemenulistview.SwipeMenuListView.OnSwipeListener;
 import com.talengu.wordwarrior.control.ListviewItemAdapter;
 import com.talengu.wordwarrior.model.Eword;
 import com.talengu.wordwarrior.model.ListviewItem;
+import com.talengu.wordwarrior.others.TextToSpeechActivity;
 import com.talengu.wordwarrior.sql.SqlHelper;
 import com.talengu.wordwarrior.sql.WordDAO;
 
@@ -85,7 +86,7 @@ public class MainActivity extends Activity {
         String datain = getResources().getString(R.string.Dialog_input);
         String dataout = getResources().getString(R.string.Dialog_output);
         String txtin = getResources().getString(R.string.title_activity_txt);
-        s1.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, new String[]{"Word Warrior", datain, dataout, txtin}));
+        s1.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, new String[]{"Word Warrior", datain, dataout, txtin,"TTS"}));
 
         s1.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
@@ -140,6 +141,11 @@ public class MainActivity extends Activity {
                     startActivity(intent);
                     finish();
 
+                }
+                if (position == 4){
+                    Intent intent = new Intent();
+                    intent.setClass(MainActivity.this, TextToSpeechActivity.class);
+                    startActivity(intent);
                 }
             }
         });
