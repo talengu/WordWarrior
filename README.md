@@ -1,4 +1,4 @@
-﻿# WordWarrior
+# WordWarrior
 一个个性化的安卓英语单词本应用，配合mdict效果更好哦！
 
 ## 功能
