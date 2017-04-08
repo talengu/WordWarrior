@@ -8,3 +8,5 @@
 /captures
 .externalNativeBuild
 app/app-release.apk
+
+android_dev_key.jks
