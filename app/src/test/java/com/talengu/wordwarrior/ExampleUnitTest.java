@@ -13,6 +13,6 @@ public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
         //assertEquals(4, 2 + 2);
-        System.out.println("nice");
+        System.out.println(html2txt.getStringFromHtml("https://jsoup.org/"));
     }
 }

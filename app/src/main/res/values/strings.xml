@@ -5,7 +5,6 @@
     <string name="app_name">Warrior</string>
 
 
-
     <string name="Dialog_input">Data In</string>
     <string name="Dialog_input_detail">Data input from /sdcard/new.db and will replace former data! Attention, app will close!</string>
     <string name="Dialog_output">Data Out</string>
@@ -21,6 +20,8 @@
     <string name="title_activity_txt">TXT Input</string>
     <string name="txt_button_add">Add</string>
     <string name="txt_button_del_add">Del Add</string>
+    <string name="txt_button_html_add">Html Add</string>
+
     <string name="txt_del_add_toast">Delete Data Success</string>
     <string name="txt_add_toast1">Add Success! Added </string>
     <string name="txt_add_toast2"> Words.</string>
@@ -28,6 +29,7 @@
     <string name="tts_clear">Clear</string>
     <string name="tts_please">please input</string>
     <string name="tts_activity_txt">TTS</string>
+    <string name="txt_html_add_toast">html add</string>
 
 
 </resources>

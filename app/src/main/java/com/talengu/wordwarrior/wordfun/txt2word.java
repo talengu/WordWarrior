@@ -18,7 +18,7 @@ import java.util.TreeMap;
  * 这里是处理文字文档的方法
  */
 
-public class txtfun {
+public class txt2word {
 
     //输入数据buffer
     private BufferedReader br;
@@ -27,14 +27,14 @@ public class txtfun {
     public static ArrayList<Map.Entry<String, Integer>> list;
 
 
-    public txtfun(String txtstring) throws IOException {
+    public txt2word(String txtstring) throws IOException {
         ByteArrayInputStream is = new ByteArrayInputStream(txtstring.getBytes());
         this.br = new BufferedReader(new InputStreamReader(is));
         this.txtsort(br);
 
     }
 
-    public txtfun(FileReader mFileReader) throws IOException {
+    public txt2word(FileReader mFileReader) throws IOException {
         // BufferedReader br = new BufferedReader(new FileReader("D:/test.txt"));
         this.br = new BufferedReader(mFileReader);
         this.txtsort(br);

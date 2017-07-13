@@ -50,6 +50,13 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:text="@string/txt_button_add" />
+                <Button
+                    android:id="@+id/button_html_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:text="@string/txt_button_html_add" />
 
 
             </LinearLayout>

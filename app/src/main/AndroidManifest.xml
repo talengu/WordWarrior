@@ -8,10 +8,13 @@
         android:minSdkVersion="11"
         android:targetSdkVersion="17" />
 
+    <!--读写内部存储权限-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!--上网权限-->
+    <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:allowBackup="true"
