@@ -10,6 +10,7 @@ import java.io.IOException;
  */
 
 public class html2txt {
+    //TODO: to fix the html to txt functions
     //参考 https://segmentfault.com/q/1010000002448667
     //    http://www.open-open.com/jsoup/parsing-a-document.htm
     //添加 compile 'org.jsoup:jsoup:1.10.3'

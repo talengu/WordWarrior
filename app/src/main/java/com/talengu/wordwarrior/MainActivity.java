@@ -48,6 +48,7 @@ import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends Activity {
+    private static String TAG=TXTActivity.class.getSimpleName();
     private WordDAO wDao;
     private Context context = this;
     private SwipeMenuListView mListView;
@@ -353,12 +354,14 @@ public class MainActivity extends Activity {
         String DATABASE_NAME = "wordwarrior" + str + ".db";
         String oldPath = SqlHelper.DB_NAME;
         String newPath = Environment.getExternalStorageDirectory() + File.separator + DATABASE_NAME;
-        copyFile(oldPath, newPath);
+        Log.d(TAG, "copyDBToSDcrad: "+newPath);
+        //copyFile(oldPath, newPath);
     }
 
     private void copySDcradToDB() {
         String DATABASE_NAME = "new.db";
         String oldPath = Environment.getExternalStorageDirectory() + File.separator + DATABASE_NAME;
+        Log.d(TAG, "copySDcradToDB: ");
         String newPath = SqlHelper.DB_NAME;
         copyFile(oldPath, newPath);
 
@@ -413,8 +416,9 @@ public class MainActivity extends Activity {
             @Override
             public void run() {
                 wDao.dataSyncTtoM();//先同步tmpword和myword的数据
+                //TODO: 导入导出有问题
                 copyDBToSDcrad();//然后导出
-                Toast.makeText(mContext, R.string.process_Dialog_output_success, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, R.string.process_Dialog_output_success, Toast.LENGTH_SHORT).show();
             }
         }).start();
     }

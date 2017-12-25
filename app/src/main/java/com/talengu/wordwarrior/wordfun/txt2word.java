@@ -99,4 +99,11 @@ public class txt2word {
             System.out.println(list.get(i).getKey() + ": " + list.get(i).getValue());
         }
     }
+    public static String list2string() {
+        String mString="";
+        for (int i = 0; i < list.size(); i++) {
+            mString+=list.get(i).getKey() + ": " + list.get(i).getValue()+"\n";
+        }
+        return mString;
+    }
 }
