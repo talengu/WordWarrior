@@ -3,7 +3,9 @@ package com.talengu.wordwarrior;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.ClipboardManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -48,7 +50,7 @@ import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends Activity {
-    private static String TAG=TXTActivity.class.getSimpleName();
+    private static String TAG=MainActivity.class.getSimpleName();
     private WordDAO wDao;
     private Context context = this;
     private SwipeMenuListView mListView;
@@ -297,12 +299,32 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // TODO 自动生成的方法存根
-
-                // bundle.putString("word", mEwordList.get(position).getspelling());
+//                try {
+//
+//                    Intent i = new Intent();
+//                    i.setAction(Intent.ACTION_VIEW);
+//                    i.putExtra("key_text_input", "hello");
+//                    i.putExtra("key_text_output", "");
+//                    i.putExtra("key_language_from", "en");
+//                    i.putExtra("key_language_to", "zh-CN");
+//                    //i.putExtra("key_suggest_translation", "");
+//                    //i.putExtra("key_from_floating_window", false);
+//                    i.setComponent(
+//                            new ComponentName(
+//                                    "com.google.android.apps.translate",
+//                                    "com.google.android.apps.translate.translation.TranslateActivity"));
+//                    startActivity(i);
+//                } catch (ActivityNotFoundException e) {
+//
+//                    Toast.makeText(getApplication(),"Sorry, No Google Translation Installed",
+//                            Toast.LENGTH_SHORT).show();
+//                }
+                 //bundle.putString("word", mEwordList.get(position).getspelling());
                 ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 
                 // 将文本内容放到系统剪贴板里。
                 cm.setText(mEwordList.get(position).getWordSpell());
+                //Toast.makeText(getApplication(),"已复制",Toast.LENGTH_SHORT).show();
 
 
             }
@@ -353,17 +375,22 @@ public class MainActivity extends Activity {
         String str = formatter.format(curDate);
         String DATABASE_NAME = "wordwarrior" + str + ".db";
         String oldPath = SqlHelper.DB_NAME;
-        String newPath = Environment.getExternalStorageDirectory() + File.separator + DATABASE_NAME;
+
+        //String savepath=getExternalFilesDir(null) + File.separator+"wordwarrior";
+        String newPath =  getExternalFilesDir(null)+File.separator+ DATABASE_NAME;
+
         Log.d(TAG, "copyDBToSDcrad: "+newPath);
-        //copyFile(oldPath, newPath);
+        copyFile(oldPath, newPath);
     }
 
     private void copySDcradToDB() {
         String DATABASE_NAME = "new.db";
-        String oldPath = Environment.getExternalStorageDirectory() + File.separator + DATABASE_NAME;
+
+        String oldPath = Environment.getExternalStorageDirectory()+ File.separator+ DATABASE_NAME;
         Log.d(TAG, "copySDcradToDB: ");
         String newPath = SqlHelper.DB_NAME;
         copyFile(oldPath, newPath);
+
 
     }
 
@@ -416,8 +443,8 @@ public class MainActivity extends Activity {
             @Override
             public void run() {
                 wDao.dataSyncTtoM();//先同步tmpword和myword的数据
-                //TODO: 导入导出有问题
                 copyDBToSDcrad();//然后导出
+                finish();
                 //Toast.makeText(mContext, R.string.process_Dialog_output_success, Toast.LENGTH_SHORT).show();
             }
         }).start();

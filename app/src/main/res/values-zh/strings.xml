@@ -7,7 +7,7 @@
     <string name="Dialog_input">数据导入</string>
     <string name="Dialog_input_detail">原数据被覆盖，数据将从根目录的new.db导入，程序会在这之后自动关闭！</string>
     <string name="Dialog_output">数据导出</string>
-    <string name="Dialog_output_detail">数据导出到根目录下的myword.db文件，程序会在这之后自动关闭！</string>
+    <string name="Dialog_output_detail">数据导出到Android/data/com.talengu.wordwarrior/files/*.db文件，程序会在这之后自动关闭！</string>
 
 
     <string name="Dialog_Button_Cancel">取消</string>

@@ -51,11 +51,14 @@ public class ListviewItemAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
+		ViewHolder holder=null;
+		//优化 ref http://blog.csdn.net/s003603u/article/details/47261393
 		if (convertView == null) {
 			convertView = View.inflate(context.getApplicationContext(), R.layout.item_list_app, null);
-			new ViewHolder(convertView);
-		}
-		ViewHolder holder = (ViewHolder) convertView.getTag();
+			holder=new ViewHolder(convertView);
+		}else
+		{holder = (ViewHolder) convertView.getTag();}
+		//ViewHolder holder = (ViewHolder) convertView.getTag();
 		ListviewItem item = getItem(position);
 		// holder.iv_icon.setImageDrawable(item.loadIcon(context.getPackageManager()));
 		holder.tv_name.setText(item.fileName);

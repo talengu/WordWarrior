@@ -8,7 +8,7 @@
     <string name="Dialog_input">Data In</string>
     <string name="Dialog_input_detail">Data input from /sdcard/new.db and will replace former data! Attention, app will close!</string>
     <string name="Dialog_output">Data Out</string>
-    <string name="Dialog_output_detail">Data output from /sdcard/mywordyyyyMMdd.db! Attention, app will close!</string>
+    <string name="Dialog_output_detail">Data output from /sdcard/Android/data/com.talengu.wordwarrior/files/mywordyyyyMMdd.db! Attention, app will close!</string>
 
     <string name="Dialog_Button_Cancel">CANCEL</string>
     <string name="Dialog_Button_OK">OK</string>
