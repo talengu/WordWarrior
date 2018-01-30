@@ -32,7 +32,7 @@
 mdict Android安装包[下载地址](http://www.mdict.cn/wp/?lang=zh)  
 
 V1.0  
-debug-apk文件[下载地址](https://raw.githubusercontent.com/talengu/WordWarrior/master/apkandimg/app-debug.apk)  
+debug-apk文件[下载地址](https://github.com/talengu/WordWarrior/releases)  
 最稳定版本 [Google Play下载](https://play.google.com/store/apps/details?id=com.talengu.wordwarrior)
 
 <img src="./apkandimg/Screen1.png" width = "240" height = "400" alt="截图一" align=center />
