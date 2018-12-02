@@ -1,5 +1,5 @@
 # WordWarrior
-一个个性化的安卓英语单词本应用，配合mdict效果更好哦！
+一个个性化的安卓英语单词本应用，配合谷歌翻译或mdict效果更好哦！
 
 ## TODO List
 - [ ] 修复单词db的保存和恢复
@@ -50,6 +50,7 @@ apk文件[下载地址](https://github.com/talengu/WordWarrior/releases)
 - 修改是否记住标记
 - 查询单词意思（点击调用黏贴板，mdict响应）
 - 可导出导入单词
+
 debug-apk文件[下载地址](https://github.com/talengu/WordWarrior/releases)  
 最稳定版本 [Google Play下载](https://play.google.com/store/apps/details?id=com.talengu.wordwarrior)
 
