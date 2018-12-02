@@ -9,7 +9,7 @@
 ## 功能
 - 从文章中分析单词词频
 - 修改是否记住标记
-- 查询单词意思（点击调用黏贴板，mdict响应）
+- 查询单词意思
 - 可导出导入单词
 
 ## 使用
@@ -28,21 +28,32 @@
 - 欢迎大家fork和给我建议！
 
 
-## 应用运行图片
-mdict Android安装包[下载地址](http://www.mdict.cn/wp/?lang=zh)  
+## 版本
 
-V1.1
-apk文件[下载地址]()
+### V1.1  
+apk文件[下载地址](https://github.com/talengu/WordWarrior/releases)
+
+**功能**
+- 从文章中分析单词词频
+- 修改是否记住标记
+- 查询单词意思【单点 某个单词 】【长点 前后 20个单词】
+- 可导出导入单词
+
 好久没有更新了，添加google translate的支持。
-- 单点 某个单词
-- 长点 前后 20个单词
+
 <img src="./apkandimg/v1_1_screen.png" width = "240" height = "400" alt="截图一" align=center />
 
 
-V1.0  
+### V1.0  
+**功能**
+- 从文章中分析单词词频
+- 修改是否记住标记
+- 查询单词意思（点击调用黏贴板，mdict响应）
+- 可导出导入单词
 debug-apk文件[下载地址](https://github.com/talengu/WordWarrior/releases)  
 最稳定版本 [Google Play下载](https://play.google.com/store/apps/details?id=com.talengu.wordwarrior)
 
+mdict Android安装包[下载地址](http://www.mdict.cn/wp/?lang=zh)  
 <img src="./apkandimg/Screen1.png" width = "240" height = "400" alt="截图一" align=center />
 <img src="./apkandimg/Screen2.png" width = "240" height = "400" alt="截图二" align=center />
 <img src="./apkandimg/Screen3.png" width = "240" height = "400" alt="截图三" align=center />
