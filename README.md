@@ -31,6 +31,14 @@
 ## 应用运行图片
 mdict Android安装包[下载地址](http://www.mdict.cn/wp/?lang=zh)  
 
+V1.1
+apk文件[下载地址]()
+好久没有更新了，添加google translate的支持。
+- 单点 某个单词
+- 长点 前后 20个单词
+<img src="./apkandimg/v1_1_screen.png" width = "240" height = "400" alt="截图一" align=center />
+
+
 V1.0  
 debug-apk文件[下载地址](https://raw.githubusercontent.com/talengu/WordWarrior/master/apkandimg/app-debug.apk)  
 最稳定版本 [Google Play下载](https://play.google.com/store/apps/details?id=com.talengu.wordwarrior)

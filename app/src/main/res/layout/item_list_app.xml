@@ -18,6 +18,7 @@
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/iv_icon"
         android:text="name"
+        android:textColor="@color/white_txt"
         android:textSize="18sp" />
     <!--android:textColor="@color/black"-->
 </RelativeLayout>

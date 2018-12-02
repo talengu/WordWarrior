@@ -293,33 +293,53 @@ public class MainActivity extends Activity {
             public void onSwipeEnd(int position) {// swipe end
             }
         });
+        mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                // 打开google translate
+                String word_string="";
+                for (int i = 0; i < mEwordList.size(); i++) {
+                    if (i>=position-10 && i<=position+10)
+                    word_string+=mEwordList.get(i).getWordSpell()+".\n";
+                }
+                try {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_PROCESS_TEXT);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_PROCESS_TEXT_READONLY, true);
+                    intent.putExtra(Intent.EXTRA_PROCESS_TEXT, word_string);
+                    startActivity(intent);
+                } catch (ActivityNotFoundException e) {
+                    // TODO Auto-generated catch block
+                    Toast.makeText(getApplication(), "Sorry, No Google Translation Installed",
+                            Toast.LENGTH_SHORT).show();
+                }
 
+
+
+                return false;
+            }
+        });
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // TODO 自动生成的方法存根
-//                try {
-//
-//                    Intent i = new Intent();
-//                    i.setAction(Intent.ACTION_VIEW);
-//                    i.putExtra("key_text_input", "hello");
-//                    i.putExtra("key_text_output", "");
-//                    i.putExtra("key_language_from", "en");
-//                    i.putExtra("key_language_to", "zh-CN");
-//                    //i.putExtra("key_suggest_translation", "");
-//                    //i.putExtra("key_from_floating_window", false);
-//                    i.setComponent(
-//                            new ComponentName(
-//                                    "com.google.android.apps.translate",
-//                                    "com.google.android.apps.translate.translation.TranslateActivity"));
-//                    startActivity(i);
-//                } catch (ActivityNotFoundException e) {
-//
-//                    Toast.makeText(getApplication(),"Sorry, No Google Translation Installed",
-//                            Toast.LENGTH_SHORT).show();
-//                }
-                 //bundle.putString("word", mEwordList.get(position).getspelling());
+
+                String word_string=mEwordList.get(position).getWordSpell();
+                try {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_PROCESS_TEXT);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_PROCESS_TEXT_READONLY, true);
+                    intent.putExtra(Intent.EXTRA_PROCESS_TEXT, word_string);
+                    startActivity(intent);
+                } catch (ActivityNotFoundException e) {
+                    // TODO Auto-generated catch block
+                    Toast.makeText(getApplication(), "Sorry, No Google Translation Installed",
+                            Toast.LENGTH_SHORT).show();
+                }
+
+
                 ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 
                 // 将文本内容放到系统剪贴板里。

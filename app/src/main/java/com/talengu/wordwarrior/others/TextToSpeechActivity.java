@@ -3,6 +3,7 @@
 package com.talengu.wordwarrior.others;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
@@ -92,10 +93,16 @@ public class TextToSpeechActivity extends Activity implements TextToSpeech.OnIni
     }
 
      private void sayHello(String hello) {
-      
-        mTts.speak(hello,
-            TextToSpeech.QUEUE_FLUSH,  // Drop all pending entries in the playback queue.
-            null);
+         Intent intent = new Intent();
+         intent.setAction(Intent.ACTION_PROCESS_TEXT);
+         intent.setType("text/plain");
+         intent.putExtra(Intent.EXTRA_PROCESS_TEXT_READONLY, true);
+         intent.putExtra(Intent.EXTRA_PROCESS_TEXT, hello);
+         startActivity(intent);
+      // tts 在我的手机上不工作
+//        mTts.speak(hello,
+//            TextToSpeech.QUEUE_FLUSH,  // Drop all pending entries in the playback queue.
+//            null);
     }
 
 
